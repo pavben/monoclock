@@ -9,7 +9,7 @@ type MonoTimer struct {
 	startTime int64
 }
 
-// Create a new monotonic timer and start it
+// Creates a new monotonic timer and starts it.
 func NewMonoTimer() *MonoTimer {
 	startTime := GetMonoTime()
 
@@ -18,13 +18,14 @@ func NewMonoTimer() *MonoTimer {
 	}
 }
 
+// Returns the number of milliseconds that have elapsed since this MonoTimer was created.
 func (self *MonoTimer) Value() int64 {
 	currentTime := GetMonoTime()
 
 	return currentTime - self.startTime
 }
 
-// Returns the time of the system monotonic clock in milliseconds
+// Returns the time of the system monotonic clock in milliseconds.
 func GetMonoTime() int64 {
 	sec, nsec := getRawMonoTime()
 
